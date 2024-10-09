@@ -1,1 +1,39 @@
 <h1></h1>Matchmaker<h1></h1>
+def get_user_input(question):
+    while True:
+        try:
+            response = int(input(question))
+            if response in [1, 2, 3, 4, 5]:
+                return response
+            else:
+                print("Please enter a number between 1 and 5.")
+        except ValueError:
+            print("Invalid input. Please enter a number between 1 and 5.")
+
+def main():
+    print("This program figures out if you and I are meant to be.")
+    print("You will answer 5 questions. To each question, answer 5 if you strongly agree, "
+          "4 if you agree, 3 if you neither agree nor disagree, 2 if you disagree, and 1 if you strongly disagree.")
+    
+    questions = [
+        "Question 1\n----------\nNickelback is the greatest rock band of all time: ",
+        "Question 2\n----------\nAndroid phones are better than iPhones: ",
+        "Question 3\n----------\nThe Bears are better than the Packers: ",
+        "Question 4\n----------\nPost Malone's use of autotune is just so cool: ",
+        "Question 5\n----------\nDr. Klump should get himself a Tesla: "
+    ]
+    
+    total_score = 0
+    
+    for question in questions:
+        total_score += get_user_input(question)
+    
+    print(f"\nYour score was {total_score}.")
+    
+    if total_score >= 20:
+        print("Hey, wanna get married ... I mean, wanna go get some food?")
+    else:
+        print("Hmm, maybe let's just be friends!")
+
+if __name__ == "__main__":
+    main()
